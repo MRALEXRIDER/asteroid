@@ -4,8 +4,8 @@ var nebula, ship, button;
 var nebulaImg, vaisseauImg,thrustImg, rockImg, laserImg, explosionImg, buttonImg
 var groupOrocks, laserp
 //dimension zone de jeu
-var LARGEUR = 400;
-var HAUTEUR = 400;
+var LARGEUR = 1000;
+var HAUTEUR = 600;
 var speedyGonzales = 5
 // variables états de jeu
 var vie, score, best;
@@ -36,7 +36,7 @@ function setup(){
   groupOrocks = createGroup();
   laserp = createGroup();
   button.addImage( buttonImg);
-  button.scale = 0.2;
+  button.scale = 0.15;
 
   ship = createSprite(200,200,20,20);
   ship.addAnimation("spaceship",vaisseauImg);
@@ -172,11 +172,11 @@ function through(sprite){
 
  function moonrocks(){
   if (World.frameCount %30 === 0){
-  var x =  Math.random()*400;
-  var y =  Math.random()*400;
+  var x =  Math.random()*LARGEUR;
+  var y =  Math.random()*HAUTEUR;
   while (Math.abs(ship.x-x)<100 && Math.abs(ship.y-y)<100) {
-     x =  Math.random()*400;
-     y =  Math.random()*400;
+     x =  Math.random()*LARGEUR;
+     y =  Math.random()*HAUTEUR;
   }
   var rocks = createSprite(x, y);
   rocks.addImage(rockImg);
